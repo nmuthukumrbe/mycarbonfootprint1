@@ -1,0 +1,63 @@
+<input type="hidden" value="$appUser.id" id="t-id">
+
+
+<section class="invoice">
+	<!-- title row -->
+	<div class="row">
+		<!-- <div class="box-header">
+			<h3 class="box-title"><b>Virtual Client Details</b></h3>
+		</div> -->
+		<div class="col-xs-12">
+			<div class="pull-right">
+				<button type="submit" onclick="loadAppUserPage();" class="btn btn-default ">All</button>
+				<button type="submit" onclick="sendNotification();" class="btn btn-default "><i class="fa fa-paper-plane"></i></button>
+				<button type="submit" onclick='loadAddEditAppUser($appUser.id);' class="btn btn-info "><i class="fa fa-edit"></i></button>
+			</div>
+			<h2 class="page-header">
+				<b>
+				#if(4==$appUser.role)
+					<a href="http://www.appytailor.com/t/$appUser.id/" target="_blank"> $appUser.name </a>
+				#else
+					<a> $appUser.name </a>
+				#end 
+				</b><br>
+			</h2>
+		</div>
+		<!-- /.col -->
+	</div>
+	<!-- info row -->
+	<div class="row invoice-info">
+		<!-- /.col -->
+		<div class="col-sm-6 table-responsive">
+			<table class="table">
+				<tr>
+					<th>Name</th>
+					<td>#if($appUser.name)$appUser.name#end</td>
+				</tr>
+				<tr>
+					<th>Mobile</th>
+					<td>#if($appUser.mobile)$appUser.mobile#end</td>
+				</tr>
+				<tr>
+					<th>Password</th>
+					<td>#if($appUser.password)$appUser.password#end</td>
+				</tr>
+				<tr>
+					<th>Description</th>
+					<td>#if($appUser.desc)$appUser.desc#end</td>
+				</tr>
+				<tr>
+					<th>Type</th>
+					<td>#foreach($userType in $userTypes)
+						#if($userType.id==$appUser.role)
+							$userType.type
+						#end #end
+					</td>
+				</tr>
+			</table>
+		</div>
+		<!-- /.col -->
+	</div>
+	<!-- /.row -->
+</section>
+<!-- /.content -->

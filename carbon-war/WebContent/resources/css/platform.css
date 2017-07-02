@@ -1,0 +1,100 @@
+.teeth ul {
+	list-style: none;
+}
+
+.teeth .bottom ul li {
+	display: inline;
+}
+
+.teeth .top ul li img {
+	display: inline;
+	vertical-align: bottom;
+}
+
+.teeth .bottom ul li img {
+	display: inline;
+	vertical-align: top;
+}
+
+.teeth .top ul li {
+	display: inline;
+	vertical-align: bottom;
+}
+
+.teeth ul li img {
+	cursor: pointer;
+	padding-left: 6px;
+}
+
+.teeth .teethSize:hover {
+	-webkit-transform: scale(1.25); /* Safari and Chrome */
+	-moz-transform: scale(1.25); /* Firefox */
+	-ms-transform: scale(1.50); /* IE 9 */
+	-o-transform: scale(1.25); /* Opera */
+	transform: scale(1.25);
+	-webkit-filter: grayscale(0%); /* Chrome, Safari, Opera */
+	filter: grayscale(0%);
+}
+
+.teeth .top .tick {
+	position: absolute;
+	z-index: 10;
+	top: 136px;
+	display: none;
+	padding-left: 12px;
+	margin-top: -7px;
+}
+
+.teeth .bottom .tick {
+	position: absolute;
+	right: 10;
+	z-index: 10;
+	display: none;
+	padding-left: 12px;
+	padding-top: 5px;
+}
+
+.teethSize {
+	width: 32px !important;
+}
+
+.custom-tooltip+.tooltip.top>.tooltip-arrow {
+	background-color: #f00;
+}
+
+#msg {
+	position: absolute;
+	text-align: center;
+	z-index: 100;
+	vertical-align: top;
+}
+
+.success-msg {
+	width: 400px;
+	color: #468847;
+	background-color: #dff0d8;
+	border-color: #d6e9c6;
+	background-color: #dff0d8;
+	height: 40px;
+	padding-top: 6px;
+}
+
+.error-msg {
+	width: 400px;
+	color: #b94a48;
+	background-color: #f2dede;
+	border-color: #eed3d7;
+	height: 40px;
+	padding-top: 6px;
+}
+
+.in-progress-msg {
+	max-width: 400px;
+    min-width: 300px;
+	color: #53ADB4;
+	background-color: #F8FDFE;
+	border-color: #ECFAFB;
+	height: 40px;
+	z-index: 100;
+	padding-top: 6px;
+}

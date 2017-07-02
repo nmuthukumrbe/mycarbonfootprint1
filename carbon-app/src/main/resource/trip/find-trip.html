@@ -1,0 +1,39 @@
+<div class="col-md-12" id="add-patient">
+	<div class="box box-primary">
+		<div class="box-body">
+			<div class="box-header with-border">
+				<h3 class="box-title">Find a Rider to pool with you!</h3>
+			</div>
+			<!-- /.box-header -->
+			<!-- form start -->
+			<form role="form" autocomplete="off">
+				<div class="box-body">
+					<video id="preview"></video>
+				    <script type="text/javascript">
+				      let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+				      scanner.addListener('scan', function (content) {
+				        console.log(content);
+				        alert(content);
+				        var list = content.split("/");
+						if(list.length==3){
+							list[1];
+							list[2];
+							loadTrip(list[1], list[2]);
+							scanner.stop();
+						}
+				      });
+				      Instascan.Camera.getCameras().then(function (cameras) {
+				        if (cameras.length > 0) {
+				          scanner.start(cameras[0]);
+				        } else {
+				          console.error('No cameras found.');
+				        }
+				      }).catch(function (e) {
+				        console.error(e);
+				      });
+				    </script>
+			    </div> 
+			</form>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,70 @@
+<div class="col-md-12" id="add-patient">
+	<div class="box box-primary">
+		<div class="box-body">
+			<div class="box-header with-border">
+				<h3 class="box-title">User Signup</h3>
+			</div>
+			<!-- /.box-header -->
+			<!-- form start -->
+			<form role="form" autocomplete="off">
+				<div class="box-body">
+					<input type="hidden" id="id"
+							value='#if($appUser.id) $appUser.id #end'>
+					<div class="form-group  col-md-12">
+						<!-- <label for="fn">Name</label>  --><input type="text"
+							class="form-control" id="name" placeholder="Name"
+							value='#if($appUser.name)$appUser.name#end'>
+					</div>
+					<div class="form-group col-md-12">
+						<!-- <label for="ln">Mobile</label>  --><input type="text" onkeypress='validate(event)'
+							class="form-control" id="mobile" placeholder="Mobile"
+							value='#if($appUser.mobile)$appUser.mobile#end'>
+					</div>
+					<div class="form-group  col-md-12">
+						<!-- <label for="em">Password</label>  --><input type="text" 
+							class="form-control" id="password" placeholder="Password"
+							value='#if($appUser.password)$appUser.password#end'>
+					</div>
+					<div class="form-group col-md-12">
+						<!-- <label for="pn">Date of Birth</label>  --><input type="text"
+							class="form-control" id="dob" placeholder="Date of Birth"
+							value='#if($appUser.dob)$appUser.dob#end'>
+					</div>
+					<div class="form-group  col-md-12">
+						<!-- <label for="em">Address</label>  --><input type="text" 
+							class="form-control" id="address" placeholder="Address"
+							value='#if($appUser.address)$appUser.address#end'>
+					</div>
+					<div class="form-group  col-md-12">
+						<!-- <label for="em">Company</label>  --><input type="text" 
+							class="form-control" id="company" placeholder="Company"
+							value='#if($appUser.company)$appUser.company#end'>
+					</div>
+					<div class="form-group  col-md-12">
+						<!-- <label for="em">Vechicle</label>  --><input type="text" 
+							class="form-control" id="vechicle" placeholder="Vechicle"
+							value='#if($appUser.vechicle)$appUser.vechicle#end'>
+					</div>
+					<div class="form-group  col-md-4">
+						<!-- <label for="fn">Gender</label> -->
+						<select class="form-control select2" 
+							id="gender">
+									<option #if(1==$appUser.role) selected #end value='1'>Male</option>
+									<option #if(2==$appUser.role) selected #end value='1'>Female</option>
+						</select>
+					</div>
+					<div class="form-group  col-md-4">
+						<p>I Agree that i am 18+ years old. Agree to <a>T&C</a>.</p>
+					</div>
+				</div>
+			</form>
+
+			<div class="col-md-12">
+				<div class="box-footer pull-right">
+					<button type="submit" onclick='saveAppUser();'
+						class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i></button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<meta http-equiv="pragma" content="no-cache" />
+<title>MyCarbon FoorPrint</title>
+<link rel='icon' href='/mycarbon/resources/images/t_logo.jpg' type='image/x-icon'/ >
+<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+<link href="/mycarbon/resources/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="/mycarbon/resources/lib/font-awesome/css/font-awesome-4.3.0.min.css" rel="stylesheet" type="text/css" />
+<link href="/mycarbon/resources/lib/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+<link href="/mycarbon/resources/lib/admin-lte/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+<link href="/mycarbon/resources/css/app-info.css" rel="stylesheet" type="text/css" />
+<link href="/mycarbon/resources/plugins/iCheck/all.css" rel="stylesheet" type="text/css" />
+<link href="/mycarbon/resources/plugins/select2/select2.min.css" rel="stylesheet" type="text/css" />
+<link href="/mycarbon/resources/lib/admin-lte/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+<!-- <link href="/mycarbon/resources/plugins/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" /> -->
+<link href="/mycarbon/resources/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+<link href="/mycarbon/resources/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" />
+<link href="/mycarbon/resources/css/platform.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="/mycarbon/resources/lib/rating/jquery.rateyo.css">
+<link rel="stylesheet" href="/mycarbon/resources/css/segmented-controls.css">
+
+<link rel="stylesheet" href="/mycarbon/resources/switch/bootstrap-switch.css" />
+
+<style type="text/css">
+	.bgimg {background-image: url('/mycarbon/resources/images/background_ladies.jpg');}
+</style>
+
+</head>
+
+<body class="layout-top-nav skin-purple-light" 
+#if(${appUserId}>0)
+	onload="loadTrip()"
+#else
+	onload="loadLoginPage()"
+#end
+>
+<div id="prt" style="display:none"></div>
+	
+	<div class="wrapper bgimg" style="background-size: 100%;display:none" id="loginPageContent">
+
+		<div class="login-box">
+		<input id="cmp_name" value="${company}" type="hidden" />
+		
+			<div style="font-size: 35px;background: #a78314;text-align: center;">
+				<div class="row">
+					<div class="col-md-8" style="color:white;padding-top:50px">MyCorbon FootPrint</div>
+				</div>
+			</div>
+			<!-- /.login-logo -->
+			<div class="login-box-body">
+				<!--  <p class="login-box-msg">Sign in to start your session</p> -->
+				<form method="post">
+					<h5>
+						<b>UserName * </b>
+					</h5>
+					<div class="input-group">
+						<span class="input-group-addon"> <span
+							class="glyphicon glyphicon-lock"></span> </span> <input id="u"
+							type="text" placeholder="UserName"  class="form-control" />
+					</div>
+					<h5>
+						<b>Password * </b>
+					</h5>
+					<div class="input-group">
+						<span class="input-group-addon"><span
+							class="glyphicon glyphicon-lock"></span></span> <input id="p"
+							type="password" class="form-control" placeholder="Password" />
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-xs-12">
+							<button type="button" onclick="login()" class="btn btn-primary btn-block btn-flat">Login</button>
+						</div>
+						<!-- /.col -->
+					</div>
+				</form>
+			</div>
+
+			
+			<div id="status"></div>
+			<!-- <div id="webcam"></div> -->
+			<!-- <div class="hidden">
+				<canvas id="canvas" height="240" width="320"></canvas>
+			</div>
+			<div><button onclick="to_image()">Capture</button></div>
+        	<image id="theimage"></image> -->
+        	
+			<!-- <div style="font-size: 25px;background: #fff;text-align: center;margin-top: 25px;padding:20px">
+				<div class="row">
+					<div class="col-md-12"><span style="font-size:15px">Powered by</span> <span>FIXAAR TECHNOLOGY</span></div>
+				</div>
+			</div> -->
+			<!-- /.login-box-body -->
+		</div>
+		<!-- /.login-box -->
+
+	</div>
+	<div class="wrapper" id="billSystemPageContent">
+		<header class="main-header">
+			<nav class="navbar navbar-static-top">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<a class="navbar-brand" href="/">
+						<img alt="Zone Maker" src="/mycarbon/resources/images/t_logo.jpg" width="50" style="margin-top:-15px">
+						</a>
+						<button type="button" class="navbar-toggle collapsed pull-right" data-toggle="collapse" data-target="#main_dropdown_navbar" aria-expanded="false">
+					        <span class="sr-only">Toggle navigation</span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+					      </button>
+					</div>
+					<div class="collapse navbar-collapse pull-left" id="main_dropdown_navbar">
+						#if($isLicensedValidated)
+							<ul class="nav navbar-nav" id="top-nav-bar">
+								<li id="leadership" class=""><a href="#" onclick="leadershipBoard();" class="" data-toggle="" aria-expanded="false">Leaderboard</a></li>
+								<li id="mysaving" class=""><a href="#" onclick="mySaving();" class="" data-toggle="" aria-expanded="false">My Saving</a></li>
+								<li id="trip" class=""><a href="#" onclick="loadTrip()" class="" data-toggle="" aria-expanded="false">Ride</a></li>
+								<li id="signup" class=""><a href="#" onclick="loadAddEditAppUser()" class="" data-toggle="" aria-expanded="false">SignUp</a></li>
+								<li id="myinfo" class=""><a href="#" onclick="myInfo();" class="" data-toggle="" aria-expanded="false">MyInfo</a></li>
+							</ul>
+						#end
+					</div>
+					<div class="navbar-custom-menu">
+						<ul class="nav navbar-nav">
+							<!-- User Account Menu -->
+							<li class="dropdown user user-menu"><a href="/"
+								class="dropdown-toggle" data-toggle="dropdown"
+								aria-expanded="false"><span class="" id="username">${userName}</span> </a>
+								<!-- <ul class="dropdown-menu"> -->
+									<!-- Menu Footer-->
+									<!-- <li class="user-footer">
+										<div class="pull-right">
+											<a href="#" onclick="logoutUser();"
+												class="btn btn-default btn-flat">Signout</a>
+										</div>
+									</li> -->
+									
+								<ul class="dropdown-menu dropdown-user" style="width: 100px;">
+			                        <li class="divider"></li>
+			                        <li><a style="color: black" href="#" onclick="logoutUser();"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+			                        </li>
+			                    </ul>
+								<!-- </ul> -->
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<div class="content-wrapper">
+			<section class="content-header">
+				<h1></h1>
+			</section>
+			<div id='msg' class='col-md-12'>
+				<div id='success-msg'
+					class="col-md-offset-4 col-md-4 alert success-msg"
+					style="display: none;">
+					<!-- <button type="button" class="close" data-dismiss="alert">x</button> -->
+					<strong><i class='fa fa-smile-o'></i>&nbsp;&nbsp;Success!</strong>
+					<div id="success-msg-txt" style="display: inline;"></div>
+				</div>
+				<div id='error-msg' class="col-md-offset-4 col-md-4 alert error-msg"
+					style="display: none;font-size: 18px;">
+					<!-- <button type="button" class="close" data-dismiss="alert">x</button> -->
+					<strong><i class='fa fa-meh-o'></i>&nbsp;&nbsp;Error!</strong>
+					<div id="error-msg-txt" style="display: inline;font-size:15px"></div>
+				</div>
+				<div id='in-progress-msg'
+					class="col-md-offset-4 col-md-4 alert in-progress-msg"
+					style="display: none;">
+					<!-- <button type="button" class="close" data-dismiss="alert">×</button> -->
+					<strong><i class="fa fa-spinner fa-spin"
+						style="font-size: 24px;"></i>&nbsp;&nbsp;Loading!</strong>
+					<div id="in-progress-msg-txt" style="display: inline;">Please
+						wait</div>
+				</div>
+			</div>
+			<!-- Main content -->
+			<section style="margin:3px" id="content-area">
+				<div id="leadership-content"></div>
+			 	<div id="mysaving-content"></div>
+				<div id="newride-content"></div>
+				<div id="findride-content"></div>
+				<div id="signup-content"></div>
+				<div id="dynamic-content"></div>
+			</section>
+		</div>
+	</div>
+	<script src="/mycarbon/resources/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+	<script src="/mycarbon/resources/plugins/jQuery/ui/jquery-ui-1.11.4.min.js" type="text/javascript"></script>
+	<script>
+		$.widget.bridge('uibutton', $.ui.button);
+	</script>
+	<script src="/mycarbon/resources/lib/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="/mycarbon/resources/lib/bootstrap/js/bootstrap-dialog.js" type="text/javascript"></script>
+	<script src="/mycarbon/resources/lib/admin-lte/js/app-2.1.2.min.js" type="text/javascript"></script>
+	<script src="/mycarbon/resources/lib/admin-lte/js/admin-lte-action.js" type="text/javascript"></script>
+	<script src="/mycarbon/resources/js/utils.js" type="text/javascript"></script>
+	<script src="/mycarbon/resources/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
+	<script src="/mycarbon/resources/plugins/select2/select2-4.0.0.min.js" type="text/javascript"></script>
+	<script src="/mycarbon/resources/plugins/datatables/jquery.dataTables.min.js" type="text/javascript"></script>
+	<script src="/mycarbon/resources/plugins/datatables/dataTables.bootstrap.min.js" type="text/javascript"></script>
+	<script src="/mycarbon/resources/plugins/bootstrap-datetimepicker/js/moment.min.js" type="text/javascript"></script>
+	<script src="/mycarbon/resources/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+	<script src="/mycarbon/resources/plugins/input-mask/jquery.inputmask.js" type="text/javascript"></script>
+	<!-- <script src="/mycarbon/resources/plugins/input-mask/jquery.inputmask.date.extensions.js" type="text/javascript"></script>
+    <script src="/mycarbon/resources/plugins/input-mask/jquery.inputmask.extensions.js" type="text/javascript"></script> -->
+	
+	<script src="/mycarbon/resources/js/qrcode.js" type="text/javascript"></script>
+	<script src="/mycarbon/resources/js/user.js" type="text/javascript"></script>
+	<script src="/mycarbon/resources/js/trip.js" type="text/javascript"></script>
+	<script src="/mycarbon/resources/js/ride.js" type="text/javascript"></script>
+	
+	<script src="/mycarbon/resources/js/globalVariable.js" type="text/javascript"></script>
+	<script src="/mycarbon/resources/js/connection-handler.js" type="text/javascript"></script>
+	<script src="/mycarbon/resources/lib/highChart/highcharts.js"></script>
+	<script src="/mycarbon/resources/switch/bootstrap-switch.js"></script>
+	<script type="text/javascript" src="/mycarbon/resources/switch/instascan.min.js"></script>
+	
+</body>
+</html>

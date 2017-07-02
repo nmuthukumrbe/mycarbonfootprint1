@@ -1,0 +1,82 @@
+labels=அடையாளங்கள்
+label=லேபிள்
+doctor=<span style="font-size:15px">மருத்துவர்</span>
+index_doctor=<span style="font-size:15px">மருத்துவர்</span>
+index_scan_center=<span style="font-size:15px">ஸ்கேன் சென்டர்</span>
+index_labs=<span style="font-size:15px">ஆய்வகங்கள்</span>
+index_pharmacy=<span style="font-size:15px">மருந்தியல்</span>
+index_medicals=<span style="font-size:15px">மருந்தகம்</span>
+index_insurance=<span style="font-size:15px">காப்பீடு</span>
+location=இடம்
+search=தேடல்
+contact_us=எங்களை தொடர்பு கொள்ள
+my_appointment=என் நியமனம்
+signout=வெளியேறு
+showing=காண்பிக்கப்படுகிறது
+advance=முன்னெடுக்க
+specialization=விசேடம்
+day_of_appointment=நியமனம் நாள்
+appointment=நியமனம்
+search_button=தேடல் பொத்தானை
+reset=மீட்டமைக்க
+mobile_number=மொபைல் எண்
+email_address=மின்னஞ்சல் முகவரி
+message=செய்தி
+cancel=ரத்து
+submit=சமர்ப்பிக்கவும்
+contact_us_message=வாழ்த்துக்கள் !!! நீங்கள் உங்கள் செய்தியை விட்டு விட முடியும் மற்றும் நாங்கள் விரைவில் அழைக்க வேண்டும்
+please_enter_name_and_other_details=தயவு செய்து பெயர் மற்றும் பிற விவரங்களை உள்ளிடவும்
+please_enter_name=தயவு செய்து பெயரை உள்ளிடவும்
+please_enter_your_mobile_number=உங்கள் மொபைல் எண்ணை நுழைய
+please_leave_a_message=ஒரு செய்தியை வழங்கவும்
+mobile=மொபைல்
+name=பெயர்
+retype_password=கடவுச்சொல்லை மீண்டும் தட்டச்சு செய்க
+gender=பாலினம்
+i_agree_to_terms=நான் விதிமுறைகளை ஏற்கிறேன்
+register=பதிவு
+signin=உள்நுழைவு
+please_specify_the_details_to_register=பதிவு செய்ய, தயவு செய்து விவரங்களை குறிப்பிடவும்
+please_specify_the_mobile_number=தயவு செய்து மொபைல் எண் குறிப்பிட
+please_enter_your_name=உங்கள் பெயரை உள்ளிடவும்
+please_enter_password=தயவு செய்து கடவுச்சொல்லை உள்ளிடவும்
+password_should_match=கடவுச்சொல் சரியாக பொருத்த வேண்டும்
+kindly_agree_the_terms_to_continue=தயவுசெய்து தொடர்வதற்கு, விதிமுறைகளை ஏற்று கொள்ள வேண்டும்
+password=கடவுச்சொல்
+remember_me=என்னை நினைவில்
+login=உள் நுழை
+forgot_password=கடவுச்சொல்லை மறந்து விட்டீர்களா
+mobile_number_not_registered=மொபைல் எண் பதிவு இல்லை
+invalid_password=தவறான கடவுச்சொல்
+mobile_number_and_password_did_not_match=மொபைல் எண் மற்றும் கடவுச்சொல் பொருந்தவில்லை
+enter_your_registered_mobile_number=நீங்கள் பதிவு செய்துள்ள மொபைல் எண்ணை சேர்க்கவும்
+register_as_new_user=புதிய பயனர் பதிவு
+not_a_registered_mobile_number=இது பதிவு செய்துள்ள மொபைல் எண்ணை இல்லை
+about_us=எங்களை பற்றி
+fix=பதிவு
+practicing=பயிற்சி
+years=ஆண்டுகள்
+about_me=என்னை பற்றி
+treatments=சிகிச்சை
+specializations=விசேடம்
+address=முகவரி
+phone=தொலைபேசி
+about_clinic=கிளினிக் பற்றி
+clinic_details=கிளினிக் விபரங்கள்
+available_days=வருகை நாட்கள்
+gallery=கேலரி
+user_appointment_search=பயனர் நியமனம் தேடல்
+patient_name=நோயாளி பெயர்
+status=நிலைமை
+clinic=மருத்துவமனை
+date=தேதி
+time=நேரம்
+pending=நிலுவையில்
+approved=அங்கீகரிக்கப்பட்ட
+cancelled=ரத்து
+from_date=தேதியிலிருந்து
+to_date=தேதி வரை
+gallery=Gallery
+policy_details=Policy Details
+insurance_detail=Insurance Detail
+terms_conditions=Terms and Conditions

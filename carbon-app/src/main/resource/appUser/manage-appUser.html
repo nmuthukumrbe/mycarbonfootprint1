@@ -1,0 +1,54 @@
+<div class="row">
+	<div class="col-md-12" id="patient-table-container">
+		<div class="box box-primary">
+			<div class="box-header">
+				<h3 class="box-title"><b>User</b></h3>
+				<div class="pull-right">
+					<button type="submit" onclick="loadAddEditAppUser(0);" class="btn btn-success">
+						<i class="fa fa-plus"></i>
+					</button>
+				</div>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body">
+				<table id="tailor-table" class="table table-bordered table-hover">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Mobile</th>
+							<th>Type</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						#foreach($appUser in $appUserList)
+						<tr style='cursor: pointer;' >
+						<!-- onclick='loadTailorDetails($tailor.id)' -->
+							<td onclick='loadAppUserDetails($appUser.id);' >#if($appUser.name)$appUser.name#end</td>
+							<td onclick='loadAppUserDetails($appUser.id);' >#if($appUser.mobile)$appUser.mobile#end</td>
+							<td>
+							#foreach($userType in $userTypes)
+								#if($userType.id==$appUser.role)
+									$userType.type
+								#end
+							#end
+							</td>
+							<td>
+								<a onclick='loadAddEditAppUser($appUser.id);' style='margin-right:5px' 
+								class='btn btn-info' href='#'><i class='fa fa-pencil'></i></a>
+							</td>
+						</tr>
+						#end
+					</tbody>
+				</table>
+			</div>
+			<div class="box-footer">
+				<div class="pull-right">
+					<b>Copyright © 2015-2017 <a href="http://www.fixaar.com">Fixaar</a> All Rights Reserved</b> 
+				</div>
+			<!-- /.box-body -->
+		</div>
+		<!-- /.box -->
+		<!-- /.box -->
+	</div>
+</div>
